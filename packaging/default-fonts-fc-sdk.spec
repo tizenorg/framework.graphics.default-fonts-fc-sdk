@@ -21,6 +21,8 @@ cp %{SOURCE1001} .
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 
 mkdir -p %{buildroot}%{_prefix}/etc/fonts/conf.d/
 mkdir -p %{buildroot}/opt/etc/fonts/conf.avail/ && cp -a sdk_fonts_fc/* %{buildroot}/opt/etc/fonts/conf.avail/
@@ -38,3 +40,5 @@ chsmack -a '*' /opt/etc/fonts/conf.avail/99-slp.conf
 /opt/etc/fonts/conf.avail/99-slp.conf
 %{_prefix}/etc/fonts/conf.d/99-slp.conf
 %exclude %{_prefix}/etc/fonts/conf.d/documentation.list
+/usr/share/license/%{name}
+
